@@ -1,6 +1,4 @@
-#ifndef NANORQ_TABLE2_H
-#define NANORQ_TABLE2_H
-
+#pragma once
 #include <stdint.h>
 
 static const uint16_t K_padded[] = {
@@ -208,4 +206,3 @@ static const uint16_t S_H_W[][3] = {
     {877, 16, 54713}, {877, 16, 55259}, {883, 16, 55817}, {907, 16, 56393},
     {907, 16, 56951}};
 
-#endif

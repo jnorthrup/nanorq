@@ -1,11 +1,9 @@
 
 #include <endian.h>
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-#include <nanorq.h>
+#include "nanorq.h"
 
 void dump_esi(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn,
               uint32_t esi) {

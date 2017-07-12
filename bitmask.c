@@ -86,7 +86,7 @@ void bitmask_print(struct bitmask *bm) {
     while (bits < 8) {
       putc(DIGITS_BIN[(*offset >> bits++) & 1], fp);
     }
-    if ((extent) && (c)) {
+    if (extent != 0) {
       putc(c, fp);
     }
     offset++;

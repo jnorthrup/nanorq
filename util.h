@@ -1,12 +1,8 @@
-#ifndef NANORQ_UTIL_H
-#define NANORQ_UTIL_H
+#pragma once
 
-#include <stdint.h>
-#include <string.h>
-
-#include <octmat.h>
 
 #include "kvec.h"
+#include "oblas/octmat.h"
 
 #define div_ceil(A, B) ((A) / (B) + ((A) % (B) ? 1 : 0))
 #define div_floor(A, B) ((A) / (B))
@@ -26,4 +22,3 @@ struct repair_sym {
 
 typedef kvec_t(struct repair_sym) repair_vec;
 
-#endif

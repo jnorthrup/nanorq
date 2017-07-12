@@ -3,8 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <nanorq.h>
+#include "nanorq.h"
 
 void usage(char *prog) {
   fprintf(stderr, "usage:\n%s <filename> <packet_size>", prog);

@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <oblas.h>
 
 #include "bitmask.h"
 #include "chooser.h"
-#include "graph.h"
 #include "params.h"
 #include "precode.h"
 #include "rand.h"
+#include "oblas/octtables.h"
+#include "oblas/oblas.h"
 
 static void precode_matrix_init_LDPC1(octmat *A, uint16_t S, uint16_t B) {
   uint16_t row, col;
