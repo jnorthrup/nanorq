@@ -1,8 +1,4 @@
-#ifndef NANORQ_CHOOSER_H
-#define NANORQ_CHOOSER_H
-
-#include <stdbool.h>
-
+#pragma once
 #include "graph.h"
 #include "util.h"
 
@@ -27,4 +23,3 @@ uint16_t chooser_non_zero(struct chooser *ch, octmat *A, struct graph *G,
 uint16_t chooser_pick(struct chooser *ch, struct graph *G, uint16_t i,
                       uint16_t sub_rows, uint16_t non_zero);
 
-#endif

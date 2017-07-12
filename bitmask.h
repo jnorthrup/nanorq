@@ -1,9 +1,5 @@
-#ifndef BITMASK_H
-#define BITMASK_H
+#pragma once
 
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdlib.h>
 
 #include "kvec.h"
 
@@ -19,5 +15,3 @@ size_t bitmask_popcount(struct bitmask *bm);
 size_t bitmask_gaps(struct bitmask *bm, size_t until);
 void bitmask_free(struct bitmask *bm);
 void bitmask_print(struct bitmask *bm);
-
-#endif

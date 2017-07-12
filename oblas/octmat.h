@@ -1,9 +1,4 @@
-#ifndef OCTMAT_H
-#define OCTMAT_H
-
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
+#pragma once
 
 #ifndef OCTMAT_ALIGN
 #define OCTMAT_ALIGN 16
@@ -27,5 +22,3 @@ void om_resize(octmat *v, uint16_t r, uint16_t c);
 void om_copy(octmat *v1, octmat *v0);
 void om_destroy(octmat *v);
 void om_print(FILE *stream, octmat m);
-
-#endif

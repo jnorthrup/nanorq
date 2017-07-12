@@ -1,6 +1,8 @@
+#include <stdlib.h>
 #include <errno.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdint.h>
+#include <memory.h>
 
 #include "oblas.h"
 

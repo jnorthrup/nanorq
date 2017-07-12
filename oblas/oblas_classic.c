@@ -4,6 +4,8 @@
 #ifndef OBLAS_NEON
 
 
+#include <stdio.h>
+#include <stdint.h>
 #include "oblas.h"
 #include "octmul_hilo.h"
 

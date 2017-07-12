@@ -1,5 +1,4 @@
-#ifndef NANORQ_PARAMS_H
-#define NANORQ_PARAMS_H
+#pragma once
 
 #include "table2.h"
 #include "util.h"
@@ -19,5 +18,3 @@ struct pparams {
 
 struct pparams params_init(uint16_t symbols);
 uint16_vec params_get_idxs(struct pparams *prm, uint32_t X);
-
-#endif

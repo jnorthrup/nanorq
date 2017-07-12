@@ -1,8 +1,4 @@
-#ifndef NANORQ_IOCTX_H
-#define NANORQ_IOCTX_H
-
-#include <stdbool.h>
-#include <stdint.h>
+#pragma once
 
 struct ioctx {
   size_t (*read)(struct ioctx *, void *, int);
@@ -15,4 +11,3 @@ struct ioctx {
 
 struct ioctx *ioctx_from_file(const char *fn, int t);
 
-#endif

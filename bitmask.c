@@ -1,5 +1,8 @@
-#include "bitmask.h"
 #include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "bitmask.h"
 
 #define IDXBITS 32
 

@@ -1,6 +1,4 @@
-#ifndef NANORQ_PRECODE_H
-#define NANORQ_PRECODE_H
-
+#pragma once
 #include "bitmask.h"
 #include "params.h"
 
@@ -16,5 +14,3 @@ octmat precode_matrix_encode(struct pparams *prm, octmat *C, uint32_t isi);
 
 bool precode_matrix_decode(struct pparams *prm, octmat *X,
                            repair_vec *repair_bin, struct bitmask *mask);
-
-#endif
