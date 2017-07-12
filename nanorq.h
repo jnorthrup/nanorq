@@ -1,5 +1,4 @@
-#ifndef NANORQ_H
-#define NANORQ_H
+#pragma once
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -8,6 +7,7 @@
 #include "io.h"
 
 static const uint64_t NANORQ_MAX_TRANSFER = 946270874880ULL; // ~881 GB
+static char *const defaultPayloadName = "data.rq";
 
 typedef struct nanorq nanorq;
 
@@ -69,5 +69,3 @@ uint64_t nanorq_decode_block(nanorq *rq, struct ioctx *io, uint8_t sbn);
 
 // cleanup decoder resouces of a given block
 void nanorq_decode_cleanup(nanorq *rq, uint8_t sbn);
-
-#endif

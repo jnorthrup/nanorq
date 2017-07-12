@@ -1,9 +1,9 @@
-
 #include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "nanorq.h"
+
 
 void dump_esi(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn,
               uint32_t esi) {
@@ -29,7 +29,7 @@ void dump_block(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn) {
   uint32_t num_esi = nanorq_block_symbols(rq, sbn);
   int num_dropped = 0, num_rep = 0;
   for (uint32_t esi = 0; esi < num_esi; esi++) {
-    float dropped = ((float) rand() / (float)RAND_MAX) * (float)100.0;
+    float dropped = (float) rand() / (float) RAND_MAX * (float) 100.0;
     float drop_prob = expected_loss;
     if (dropped < drop_prob) {
       num_dropped++;
@@ -47,11 +47,11 @@ void dump_block(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn) {
 }
 
 void usage(char *prog) {
-  fprintf(stderr, "usage:\n%s <filename> <packet_size>", prog);
+  fprintf(stderr, "usage:\n%s <srcFilename> <packet_size> [payloadFilename]", prog);
   exit(1);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char **argv ) {
   if (argc < 3)
     usage(argv[0]);
 
@@ -65,7 +65,8 @@ int main(int argc, char *argv[]) {
   size_t filesize = myio->size(myio);
 
   // determine chunks, symbol size, memory usage from size
-  uint16_t packet_size = (uint16_t) strtol(argv[2], NULL, 10); // T
+    char *packetSize = argv[2];
+    uint16_t packet_size = (uint16_t) strtol(packetSize, NULL, 10); // T
   uint8_t align = 4;
   uint16_t ss = (uint16_t) (packet_size / 2);
   uint32_t ws = (uint32_t) (packet_size * 100);
@@ -86,7 +87,8 @@ int main(int argc, char *argv[]) {
 
   uint64_t oti_common = htobe64(nanorq_oti_common(rq));
   uint32_t oti_scheme = htobe32(nanorq_oti_scheme_specific(rq));
-  FILE *oh = fopen("data.rq", "w+");
+    char *filename = argc<4?defaultPayloadName:argv[3];
+    FILE *oh = fopen(filename, "w+");
   fwrite(&oti_common, 1, sizeof(oti_common), oh);
   fwrite(&oti_scheme, 1, sizeof(oti_scheme), oh);
   for (uint8_t sbn = 0; sbn < num_sbn; sbn++) {

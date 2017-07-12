@@ -12,3 +12,7 @@ cmake-build-debug
 CMakeFiles
 CMakeCache.txt
 cmake_install.cmake
+nanorq_decode
+nanorq_encode
+*.cbp
+tablegen

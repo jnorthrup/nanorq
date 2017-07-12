@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(nanorq)
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-O3 -std=c99 -Wall -mtune=native -march=native -funroll-loops")
-
+#set(CMAKE_C_FLAGS "-O3 -std=c99 -Wall -mtune=native -march=native -funroll-loops")
 #include_directories(after system oblas)
 #add_definitions(-DOBLAS_SSE  )
 #add_compile_options(-O3)
