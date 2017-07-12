@@ -1,3 +1,8 @@
 *.o
 *.a
 *.bin
+data.rq
+decode
+encode
+peace_and_war.txt
+war_and_peace.txt
