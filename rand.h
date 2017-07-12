@@ -1,8 +1,5 @@
-#ifndef NANORQ_RAND_H
-#define NANORQ_RAND_H
+#pragma once
 
 #include <stdint.h>
 
-uint32_t rnd_get(const uint32_t y, const uint8_t i, const uint32_t m);
-
-#endif
+uint32_t rnd_get(uint32_t y, uint8_t i, uint32_t m);

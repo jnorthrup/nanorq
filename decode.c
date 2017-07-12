@@ -52,13 +52,13 @@ int main(int argc, char *argv[]) {
   }
   for (int sbn = 0; sbn < num_sbn; sbn++) {
     fprintf(stderr, "block %d is %d packets, lost %d, have %d repair\n", sbn,
-            nanorq_block_symbols(rq, sbn), nanorq_num_missing(rq, sbn),
-            nanorq_num_repair(rq, sbn));
-    written = nanorq_decode_block(rq, myio, sbn);
+            nanorq_block_symbols(rq, (uint8_t) sbn), nanorq_num_missing(rq, (uint8_t) sbn),
+            nanorq_num_repair(rq, (uint8_t) sbn));
+    written = nanorq_decode_block(rq, myio, (uint8_t) sbn);
     if (written == 0) {
       fprintf(stderr, "decode of sbn %d failed.\n", sbn);
     }
-    nanorq_decode_cleanup(rq, sbn);
+    nanorq_decode_cleanup(rq, (uint8_t) sbn);
   }
   fclose(ih);
   nanorq_free(rq);

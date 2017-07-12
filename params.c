@@ -39,7 +39,7 @@ static bool is_prime(uint16_t n) {
 static uint16_t deg(uint32_t v, uint16_t W) {
   for (uint16_t d = 0; d < degree_dist_size; d++) {
     if (v < degree_dist[d])
-      return (d < (W - 2)) ? d : (W - 2);
+      return (uint16_t) ((d < (W - 2)) ? d : (W - 2));
   }
   return 0;
 }
@@ -49,22 +49,22 @@ static struct ptuple gen_tuple(uint32_t X, uint16_t J, uint16_t W,
 
   struct ptuple ret;
 
-  size_t A = 53591 + J * 997;
+  size_t A = (size_t) (53591 + J * 997);
 
   if (A % 2 == 0)
     A++;
-  size_t B1 = 10267 * (J + 1);
+  size_t B1 = (size_t) (10267 * (J + 1));
   uint32_t y = (uint32_t)((B1 + X * A));
   uint32_t v = rnd_get(y, 0, (uint32_t)((1 << 20)));
   ret.d = deg(v, W);
-  ret.a = 1 + (uint16_t)(rnd_get(y, 1, W - 1));
+  ret.a = (uint16_t) (1 + (uint16_t)(rnd_get(y, 1, (const uint32_t) (W - 1))));
   ret.b = (uint16_t)(rnd_get(y, 2, W));
   if (ret.d < 4) {
-    ret.d1 = 2 + (uint16_t)(rnd_get(X, 3, 2));
+    ret.d1 = (uint16_t) (2 + (uint16_t)(rnd_get(X, 3, 2)));
   } else {
     ret.d1 = 2;
   }
-  ret.a1 = 1 + (uint16_t)(rnd_get(X, 4, P1 - 1));
+  ret.a1 = (uint16_t) (1 + (uint16_t)(rnd_get(X, 4, (const uint32_t) (P1 - 1))));
   ret.b1 = (uint16_t)(rnd_get(X, 5, P1));
 
   return ret;
@@ -88,9 +88,8 @@ struct pparams params_init(uint16_t symbols) {
 
   prm.L = prm.K_padded + prm.S + prm.H;
   prm.P = prm.L - prm.W;
-  prm.U = prm.P - prm.H;
   prm.B = prm.W - prm.S;
-  prm.P1 = prm.P + 1;
+  prm.P1 = (uint16_t) (prm.P + 1);
 
   while (!is_prime(prm.P1))
     prm.P1++;

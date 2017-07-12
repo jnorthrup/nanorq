@@ -45,9 +45,7 @@ int main() {
 
 */
 
-#ifndef AC_KVEC_H
-#define AC_KVEC_H
-
+#pragma once
 #include <stdlib.h>
 
 #define kv_roundup32(x)                                                        \
@@ -107,4 +105,3 @@ int main() {
     kv_A(v, j) = __tmp;                                                        \
   } while (0)
 
-#endif

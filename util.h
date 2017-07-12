@@ -1,8 +1,6 @@
 #pragma once
-
-
 #include "kvec.h"
-#include "oblas/octmat.h"
+#include "octmat.h"
 
 #define div_ceil(A, B) ((A) / (B) + ((A) % (B) ? 1 : 0))
 #define div_floor(A, B) ((A) / (B))

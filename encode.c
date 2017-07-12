@@ -29,7 +29,7 @@ void dump_block(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn) {
   uint32_t num_esi = nanorq_block_symbols(rq, sbn);
   int num_dropped = 0, num_rep = 0;
   for (uint32_t esi = 0; esi < num_esi; esi++) {
-    float dropped = ((float)(rand()) / (float)RAND_MAX) * (float)100.0;
+    float dropped = ((float) rand() / (float)RAND_MAX) * (float)100.0;
     float drop_prob = expected_loss;
     if (dropped < drop_prob) {
       num_dropped++;
@@ -65,10 +65,10 @@ int main(int argc, char *argv[]) {
   size_t filesize = myio->size(myio);
 
   // determine chunks, symbol size, memory usage from size
-  uint16_t packet_size = strtol(argv[2], NULL, 10); // T
+  uint16_t packet_size = (uint16_t) strtol(argv[2], NULL, 10); // T
   uint8_t align = 4;
-  uint16_t ss = packet_size / 2;
-  uint32_t ws = packet_size * 100;
+  uint16_t ss = (uint16_t) (packet_size / 2);
+  uint32_t ws = (uint32_t) (packet_size * 100);
 
   srand((unsigned int)time(0));
 

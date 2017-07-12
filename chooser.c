@@ -30,7 +30,7 @@ void chooser_add_tracking_pair(struct chooser *ch, bool is_hdpc,
 
 uint16_t chooser_non_zero(struct chooser *ch, octmat *A, struct graph *G,
                           uint16_t i, uint16_t sub_rows, uint16_t sub_cols) {
-  uint16_t non_zero = sub_cols + 1;
+  uint16_t non_zero = (uint16_t) (sub_cols + 1);
 
   for (uint16_t row = 0; row < sub_rows; row++) {
     uint16_t non_zero_tmp = 0;

@@ -13,8 +13,7 @@ struct pparams {
   uint16_t L;
   uint16_t P;
   uint16_t P1;
-  uint16_t U;
-  uint16_t B;
+    uint16_t B;
   uint16_t J;
 };
 

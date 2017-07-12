@@ -2,8 +2,8 @@
 
 #define ASSIGN_PAIR(X, F, S)                                                   \
   do {                                                                         \
-    X.first = F;                                                               \
-    X.second = S;                                                              \
+    (X).first = F;                                                               \
+    (X).second = S;                                                              \
   } while (0)
 
 struct graph *graph_new(uint16_t size) {
