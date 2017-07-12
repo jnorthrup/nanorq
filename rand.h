@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-uint32_t rnd_get(const uint32_t y, const uint8_t i, const uint32_t m);
+/*u*/int rnd_get(/*const*/ final /*u*/int y, /*const*/ final /*u*/byte i, /*const*/ final /*u*/int m);
 
 #endif

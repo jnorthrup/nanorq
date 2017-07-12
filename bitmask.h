@@ -8,16 +8,18 @@
 #include "kvec.h"
 
 struct bitmask {
-  kvec_t(uint32_t) mask;
+  kvec_t(/*u*/int) mask;
 };
+/*
 
-struct bitmask *bitmask_new(size_t initial);
-void bitmask_set(struct bitmask *bm, size_t id);
-void bitmask_clear(struct bitmask *bm, size_t id);
-bool bitmask_check(struct bitmask *bm, size_t id);
-size_t bitmask_popcount(struct bitmask *bm);
-size_t bitmask_gaps(struct bitmask *bm, size_t until);
+struct bitmask *bitmask_new(int initial);
+void bitmask_set(struct bitmask *bm, int id);
+void bitmask_clear(struct bitmask *bm, int id);
+bool bitmask_check(struct bitmask *bm, int id);
+int bitmask_popcount(struct bitmask *bm);
+int bitmask_gaps(struct bitmask *bm, int until);
 void bitmask_free(struct bitmask *bm);
 void bitmask_print(struct bitmask *bm);
+*/
 
 #endif

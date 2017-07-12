@@ -10,17 +10,17 @@ struct fileioctx {
   FILE *fp;
 };
 
-static size_t fileio_read(struct ioctx *io, void *buf, int len) {
+static int fileio_read(struct ioctx *io, /*vp*/ByteBuffer buf, int len) {
   struct fileioctx *fio = (struct fileioctx *)io;
   return fread(buf, 1, len, fio->fp);
 }
 
-static size_t fileio_write(struct ioctx *io, const void *buf, int len) {
+static int fileio_write(struct ioctx *io, /*const*/ final /*vp*/ByteBuffer buf, int len) {
   struct fileioctx *fio = (struct fileioctx *)io;
   return fwrite(buf, 1, len, fio->fp);
 }
 
-static int fileio_seek(struct ioctx *io, const int offset) {
+static int fileio_seek(struct ioctx *io, /*const*/ final int offset) {
   struct fileioctx *fio = (struct fileioctx *)io;
   return (fseek(fio->fp, offset, SEEK_SET) == 0);
 }
@@ -37,7 +37,7 @@ static void fileio_destroy(struct ioctx *io) {
   return;
 }
 
-static size_t fileio_size(struct ioctx *io) {
+static int fileio_size(struct ioctx *io) {
   struct fileioctx *fio = (struct fileioctx *)io;
   long ret = 0;
   long pos = ftell(fio->fp);
@@ -47,7 +47,7 @@ static size_t fileio_size(struct ioctx *io) {
   return ret;
 }
 
-struct ioctx *ioctx_from_file(const char *fn, int t) {
+struct ioctx *ioctx_from_file(/*const*/ final /*offset*/int fn, int t) {
   struct fileioctx *ret = NULL;
 
   FILE *fp;

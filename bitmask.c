@@ -3,63 +3,63 @@
 
 #define IDXBITS 32
 
-struct bitmask *bitmask_new(size_t initial_size) {
+struct bitmask *bitmask_new(int initial_size) {
   struct bitmask *bm = calloc(1, sizeof(struct bitmask));
-  size_t max_idx = (initial_size / IDXBITS) + 1;
+  int max_idx = (initial_size / IDXBITS) + 1;
   while (max_idx >= kv_size(bm->mask))
-    kv_push(uint32_t, bm->mask, 0);
+    kv_push(/*u*/int, bm->mask, 0);
 
   return bm;
 }
 
-void bitmask_set(struct bitmask *bm, size_t id) {
-  size_t idx = id / IDXBITS;
+void bitmask_set(struct bitmask *bm, int id) {
+  int idx = id / IDXBITS;
   while (idx >= kv_size(bm->mask))
-    kv_push(uint32_t, bm->mask, 0);
+    kv_push(/*u*/int, bm->mask, 0);
 
-  uint32_t add_mask = 1 << (id % IDXBITS);
+  /*u*/int add_mask = 1 << (id % IDXBITS);
   kv_A(bm->mask, idx) |= add_mask;
 }
 
-void bitmask_clear(struct bitmask *bm, size_t id) {
-  size_t idx = id / IDXBITS;
+void bitmask_clear(struct bitmask *bm, int id) {
+  int idx = id / IDXBITS;
   while (idx >= kv_size(bm->mask))
-    kv_push(uint32_t, bm->mask, 0);
+    kv_push(/*u*/int, bm->mask, 0);
 
-  uint32_t clear_mask = 1 << (id % IDXBITS);
+  /*u*/int clear_mask = 1 << (id % IDXBITS);
 
   kv_A(bm->mask, idx) &= ~clear_mask;
 }
 
-bool bitmask_check(struct bitmask *bm, size_t id) {
-  size_t idx = id / IDXBITS;
+bool bitmask_check(struct bitmask *bm, int id) {
+  int idx = id / IDXBITS;
   if (idx >= kv_size(bm->mask))
     return false;
 
-  uint32_t check_mask = 1 << (id % IDXBITS);
+  /*u*/int check_mask = 1 << (id % IDXBITS);
   return (kv_A(bm->mask, idx) & check_mask) != 0;
 }
 
-size_t bitmask_popcount(struct bitmask *bm) {
-  size_t popcount = 0, idx;
+int bitmask_popcount(struct bitmask *bm) {
+  int popcount = 0, idx;
   for (idx = 0; idx < kv_size(bm->mask); idx++) {
     popcount += __builtin_popcountll(kv_A(bm->mask, idx));
   }
   return popcount;
 }
 
-size_t bitmask_gaps(struct bitmask *bm, size_t until) {
-  size_t gaps = 0, idx;
-  size_t until_idx = (until / IDXBITS);
+int bitmask_gaps(struct bitmask *bm, int until) {
+  int gaps = 0, idx;
+  int until_idx = (until / IDXBITS);
 
   until_idx = (until_idx > kv_size(bm->mask)) ? kv_size(bm->mask) : until_idx;
   for (idx = 0; idx < until_idx; idx++) {
-    uint32_t target = kv_A(bm->mask, idx);
+    /*u*/int target = kv_A(bm->mask, idx);
     gaps += __builtin_popcountll(~target);
   }
   if (until % IDXBITS) {
-    uint32_t until_mask = (1 << (until % IDXBITS)) - 1;
-    uint32_t target = kv_A(bm->mask, idx) | ~until_mask;
+    /*u*/int until_mask = (1 << (until % IDXBITS)) - 1;
+    /*u*/int target = kv_A(bm->mask, idx) | ~until_mask;
     gaps += __builtin_popcountll(~target);
   }
 
@@ -74,13 +74,13 @@ void bitmask_free(struct bitmask *bm) {
 }
 
 void bitmask_print(struct bitmask *bm) {
-  void *memory = (void *)bm->mask.a;
-  size_t extent = (bm->mask.n) * sizeof(uint32_t);
+  /*vp*/ByteBuffer memory = (/*vp*/ByteBuffer )bm->mask.a;
+  int extent = (bm->mask.n) * sizeof(/*u*/int);
   FILE *fp = stdout;
   char c = '|', e = '\n';
   char DIGITS_BIN[] = "01";
 
-  char *offset = (char *)(memory);
+  /*offset*/int offset = (/*offset*/int )(memory);
   while (extent--) {
     unsigned bits = 0;
     while (bits < 8) {

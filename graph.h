@@ -8,13 +8,15 @@
 
 struct graph {
   pair_vec edges;
-  uint16_t max_edges;
+  /*u*/short max_edges;
 };
+/*
 
-struct graph *graph_new(uint16_t size);
-void graph_link(struct graph *g, uint16_t node_a, uint16_t node_b);
-bool graph_is_max(struct graph *g, uint16_t id);
-uint16_t graph_find(struct graph *g, uint16_t id);
+struct graph *graph_new(//u*/short size);
+void graph_link(struct graph *g, //u*/short node_a, //u*/short node_b);
+bool graph_is_max(struct graph *g, //u*/short id);
+//u*/short graph_find(struct graph *g, //u*/short id);
 void graph_free(struct graph *g);
+*/
 
 #endif

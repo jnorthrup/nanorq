@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-static const uint16_t K_padded[] = {
+static /*const*/ final /*u*/short K_padded[] = {
     10,    12,    18,    20,    26,    30,    32,    36,    42,    46,    48,
     49,    55,    60,    62,    69,    75,    84,    88,    91,    95,    97,
     101,   114,   119,   125,   127,   138,   140,   149,   153,   160,   166,
@@ -49,10 +49,10 @@ static const uint16_t K_padded[] = {
     48976, 49470, 49978, 50511, 51017, 51530, 52062, 52586, 53114, 53650, 54188,
     54735, 55289, 55843, 56403};
 
-static const uint16_t K_max = 56403;
-static const uint16_t K_padded_size = sizeof(K_padded) / sizeof(K_padded[0]);
+static /*const*/ final /*u*/short K_max = 56403;
+static /*const*/ final /*u*/short K_padded_size = sizeof(K_padded) / sizeof(K_padded[0]);
 
-static const uint16_t J_K_padded[] = {
+static /*const*/ final /*u*/short J_K_padded[] = {
     254, 630, 682, 293, 80,  566, 860, 267, 822,  506, 589, 87,  520, 159, 235,
     157, 502, 334, 583, 66,  352, 365, 562, 5,    603, 721, 28,  660, 829, 900,
     930, 814, 661, 693, 780, 605, 551, 777, 491,  396, 764, 843, 646, 557, 608,
@@ -86,7 +86,7 @@ static const uint16_t J_K_padded[] = {
     379, 73,  387, 457, 761, 855, 370, 261, 299,  920, 269, 862, 349, 103, 115,
     93,  982, 432, 340, 173, 421, 330, 624, 233,  362, 963, 471};
 
-static const uint16_t S_H_W[][3] = {
+static /*const*/ final /*u*/short S_H_W[][3] = {
     {7, 10, 17},      {7, 10, 19},      {11, 10, 29},     {11, 10, 31},
     {11, 10, 37},     {11, 10, 41},     {11, 10, 43},     {11, 10, 47},
     {11, 10, 53},     {13, 10, 59},     {13, 10, 61},     {13, 10, 61},

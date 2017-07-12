@@ -6,19 +6,19 @@
 #include <stdbool.h>
 
 struct pparams {
-  uint16_t K_padded;
-  uint16_t S;
-  uint16_t H;
-  uint16_t W;
-  uint16_t L;
-  uint16_t P;
-  uint16_t P1;
-  uint16_t U;
-  uint16_t B;
-  uint16_t J;
+  /*u*/short K_padded;
+  /*u*/short S;
+  /*u*/short H;
+  /*u*/short W;
+  /*u*/short L;
+  /*u*/short P;
+  /*u*/short P1;
+  /*u*/short U;
+  /*u*/short B;
+  /*u*/short J;
 };
 
-struct pparams params_init(uint16_t symbols);
-uint16_vec params_get_idxs(struct pparams *prm, uint32_t X);
+struct pparams params_init(/*u*/short symbols);
+uint16_vec params_get_idxs(struct pparams *prm, /*u*/int X);
 
 #endif

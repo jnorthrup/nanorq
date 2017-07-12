@@ -12,15 +12,15 @@
 #define div_floor(A, B) ((A) / (B))
 
 struct pair {
-  uint16_t first;
-  uint16_t second;
+  /*u*/short first;
+  /*u*/short second;
 };
 
 typedef kvec_t(struct pair) pair_vec;
-typedef kvec_t(uint16_t) uint16_vec;
+typedef kvec_t(/*u*/short) uint16_vec;
 
 struct repair_sym {
-  uint32_t esi;
+  /*u*/int esi;
   octmat row;
 };
 

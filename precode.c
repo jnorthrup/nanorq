@@ -11,11 +11,11 @@
 #include "precode.h"
 #include "rand.h"
 
-static void precode_matrix_init_LDPC1(octmat *A, uint16_t S, uint16_t B) {
-  uint16_t row, col;
+static void precode_matrix_init_LDPC1(octmat *A, /*u*/short S, /*u*/short B) {
+  /*u*/short row, col;
   for (row = 0; row < S; row++) {
     for (col = 0; col < B; col++) {
-      uint16_t submtx = col / S;
+      /*u*/short submtx = col / S;
       if ((row == (col % S)) || (row == (col + submtx + 1) % S) ||
           (row == (col + 2 * (submtx + 1)) % S)) {
         om_A((*A), row, col) = 1;
@@ -24,32 +24,32 @@ static void precode_matrix_init_LDPC1(octmat *A, uint16_t S, uint16_t B) {
   }
 }
 
-static void precode_matrix_init_LDPC2(octmat *A, uint16_t skip, uint16_t rows,
-                                      uint16_t cols) {
-  for (uint16_t row = 0; row < rows; row++) {
-    uint16_t start = row % cols;
-    for (uint16_t col = 0; col < cols; col++) {
-      uint8_t val = (col == start || col == (start + 1) % cols) > 0;
+static void precode_matrix_init_LDPC2(octmat *A, /*u*/short skip, /*u*/short rows,
+                                      /*u*/short cols) {
+  for (/*u*/short row = 0; row < rows; row++) {
+    /*u*/short start = row % cols;
+    for (/*u*/short col = 0; col < cols; col++) {
+      /*u*/byte val = (col == start || col == (start + 1) % cols) > 0;
       om_A((*A), row, skip + col) = val;
     }
   }
 }
 
-static void precode_matrix_add_identity(octmat *A, uint16_t size,
-                                        uint16_t skip_row, uint16_t skip_col) {
-  for (uint16_t diag = 0; diag < size; diag++) {
+static void precode_matrix_add_identity(octmat *A, /*u*/short size,
+                                        /*u*/short skip_row, /*u*/short skip_col) {
+  for (/*u*/short diag = 0; diag < size; diag++) {
     om_A((*A), skip_row + diag, skip_col + diag) = 1;
   }
 }
 
-static octmat precode_matrix_make_MT(uint16_t rows, uint16_t cols) {
+static octmat precode_matrix_make_MT(/*u*/short rows, /*u*/short cols) {
   octmat MT = OM_INITIAL;
   om_resize(&MT, rows, cols);
 
-  for (uint16_t row = 0; row < MT.rows; row++) {
-    uint16_t col;
+  for (/*u*/short row = 0; row < MT.rows; row++) {
+    /*u*/short col;
     for (col = 0; col < MT.cols - 1; col++) {
-      uint32_t tmp = rnd_get(col + 1, 6, MT.rows);
+      /*u*/int tmp = rnd_get(col + 1, 6, MT.rows);
       if ((row == tmp) ||
           (row == (tmp + rnd_get(col + 1, 7, MT.rows - 1) + 1) % MT.rows)) {
         om_A(MT, row, col) = 1;
@@ -62,12 +62,12 @@ static octmat precode_matrix_make_MT(uint16_t rows, uint16_t cols) {
   return MT;
 }
 
-static octmat precode_matrix_make_GAMMA(uint16_t dim) {
+static octmat precode_matrix_make_GAMMA(/*u*/short dim) {
   octmat GAMMA = OM_INITIAL;
   om_resize(&GAMMA, dim, dim);
 
-  for (uint16_t row = 0; row < GAMMA.rows; row++) {
-    uint16_t col;
+  for (/*u*/short row = 0; row < GAMMA.rows; row++) {
+    /*u*/short col;
     for (col = 0; col <= row; col++)
       om_A(GAMMA, row, col) = OCT_EXP[(row - col) % OCT_EXP_SIZE];
     for (; col < GAMMA.cols; col++) {
@@ -78,8 +78,8 @@ static octmat precode_matrix_make_GAMMA(uint16_t dim) {
 }
 
 static void precode_matrix_init_HDPC(struct pparams *prm, octmat *A) {
-  uint16_t m = prm->H;
-  uint16_t n = prm->K_padded + prm->S;
+  /*u*/short m = prm->H;
+  /*u*/short n = prm->K_padded + prm->S;
 
   if (m == 0 || n == 0)
     return;
@@ -92,7 +92,7 @@ static void precode_matrix_init_HDPC(struct pparams *prm, octmat *A) {
 
   ogemm(om_P(MT), om_P(GAMMA), om_P(MTxGAMMA), MT.rows, MT.cols, GAMMA.cols);
 
-  size_t row, col;
+  int row, col;
   for (col = 0; col < GAMMA.cols; col++) {
     for (row = 0; row < MT.rows; row++) {
       om_A(*A, prm->S + row, col) = om_A(MTxGAMMA, row, col);
@@ -104,10 +104,10 @@ static void precode_matrix_init_HDPC(struct pparams *prm, octmat *A) {
 }
 
 static void precode_matrix_add_G_ENC(struct pparams *prm, octmat *A) {
-  for (uint16_t row = prm->S + prm->H; row < prm->L; row++) {
-    uint32_t isi = (row - prm->S) - prm->H;
+  for (/*u*/short row = prm->S + prm->H; row < prm->L; row++) {
+    /*u*/int isi = (row - prm->S) - prm->H;
     uint16_vec idxs = params_get_idxs(prm, isi);
-    for (uint16_t idx = 0; idx < kv_size(idxs); idx++) {
+    for (/*u*/short idx = 0; idx < kv_size(idxs); idx++) {
       om_A(*A, row, kv_A(idxs, idx)) = 1;
     }
     kv_destroy(idxs);
@@ -115,17 +115,17 @@ static void precode_matrix_add_G_ENC(struct pparams *prm, octmat *A) {
 }
 
 static void decode_phase0(struct pparams *prm, octmat *A, struct bitmask *mask,
-                          repair_vec *repair_bin, uint16_t num_symbols,
-                          uint16_t overhead) {
+                          repair_vec *repair_bin, /*u*/short num_symbols,
+                          /*u*/short overhead) {
 
-  size_t padding = prm->K_padded - num_symbols;
-  uint16_t num_gaps = bitmask_gaps(mask, num_symbols);
-  uint16_t rep_idx = 0;
-  for (uint16_t gap = 0; gap < prm->L && num_gaps > 0; gap++) {
+  int padding = prm->K_padded - num_symbols;
+  /*u*/short num_gaps = bitmask_gaps(mask, num_symbols);
+  /*u*/short rep_idx = 0;
+  for (/*u*/short gap = 0; gap < prm->L && num_gaps > 0; gap++) {
     if (bitmask_check(mask, gap))
       continue;
-    uint16_t row = gap + prm->H + prm->S;
-    for (uint16_t col = 0; col < A->cols; col++) {
+    /*u*/short row = gap + prm->H + prm->S;
+    for (/*u*/short col = 0; col < A->cols; col++) {
       om_A(*A, row, col) = 0;
     }
 
@@ -138,9 +138,9 @@ static void decode_phase0(struct pparams *prm, octmat *A, struct bitmask *mask,
     num_gaps--;
   }
 
-  uint16_t rep_row = (uint16_t)(A->rows - overhead);
+  /*u*/short rep_row = (/*u*/short)(A->rows - overhead);
   for (; rep_row < A->rows; rep_row++) {
-    for (uint16_t col = 0; col < A->cols; col++) {
+    for (/*u*/short col = 0; col < A->cols; col++) {
       om_A(*A, rep_row, col) = 0;
     }
     uint16_vec idxs =
@@ -153,25 +153,25 @@ static void decode_phase0(struct pparams *prm, octmat *A, struct bitmask *mask,
 }
 
 static bool decode_phase1(struct pparams *prm, octmat *A, octmat *X, octmat *D,
-                          uint16_vec c, uint16_t *i_val, uint16_t *u_val) {
-  uint16_t i = 0;
-  uint16_t u = prm->P;
+                          uint16_vec c, /*u*/short *i_val, /*u*/short *u_val) {
+  /*u*/short i = 0;
+  /*u*/short u = prm->P;
 
   struct chooser ch = chooser_init(A->rows);
 
-  for (uint16_t row = 0; row < A->rows; row++) {
+  for (/*u*/short row = 0; row < A->rows; row++) {
     bool is_hdpc = (row >= prm->S && row < (prm->S + prm->H));
-    size_t row_degree = 0;
-    for (uint16_t col = 0; col < A->cols - u; col++) {
-      row_degree += (uint8_t)(om_A(*A, row, col));
+    int row_degree = 0;
+    for (/*u*/short col = 0; col < A->cols - u; col++) {
+      row_degree += (/*u*/byte)(om_A(*A, row, col));
     }
     chooser_add_tracking_pair(&ch, is_hdpc, row_degree);
   }
 
   while (i + u < prm->L) {
-    uint16_t sub_rows = A->rows - i;
-    uint16_t sub_cols = A->cols - i - u;
-    uint16_t chosen, non_zero;
+    /*u*/short sub_rows = A->rows - i;
+    /*u*/short sub_cols = A->cols - i - u;
+    /*u*/short chosen, non_zero;
     struct graph *G = graph_new(sub_cols);
 
     non_zero = chooser_non_zero(&ch, A, G, i, sub_rows, sub_cols);
@@ -193,7 +193,7 @@ static bool decode_phase1(struct pparams *prm, octmat *A, octmat *X, octmat *D,
     }
 
     if (om_A(*A, i, i) == 0) {
-      uint16_t idx = 1;
+      /*u*/short idx = 1;
       for (; idx < sub_cols; idx++) {
         if (om_A(*A, i, idx + i) != 0)
           break;
@@ -202,10 +202,10 @@ static bool decode_phase1(struct pparams *prm, octmat *A, octmat *X, octmat *D,
       oswapcol(om_P(*A), i, i + idx, A->rows, A->cols);
       oswapcol(om_P(*X), i, i + idx, X->rows, X->cols);
 
-      kv_swap(uint16_t, c, i, i + idx);
+      kv_swap(/*u*/short, c, i, i + idx);
     }
-    uint16_t col = sub_cols - 1;
-    uint16_t swap = 1;
+    /*u*/short col = sub_cols - 1;
+    /*u*/short swap = 1;
     for (; col > sub_cols - non_zero; col--) {
       if (om_A(*A, i, col + i) != 0)
         continue;
@@ -219,14 +219,14 @@ static bool decode_phase1(struct pparams *prm, octmat *A, octmat *X, octmat *D,
       oswapcol(om_P(*A), col + i, swap + i, A->rows, A->cols);
       oswapcol(om_P(*X), col + i, swap + i, X->rows, X->cols);
 
-      kv_swap(uint16_t, c, col + i, swap + i);
+      kv_swap(/*u*/short, c, col + i, swap + i);
     }
 
-    for (uint16_t row = 1; row < sub_rows; row++) {
+    for (/*u*/short row = 1; row < sub_rows; row++) {
       if (om_A(*A, row + i, i) != 0) {
-        uint8_t mnum = om_A(*A, row + i, i);
-        uint8_t mden = om_A(*A, i, i);
-        uint8_t multiple = (mnum > 0 && mden > 0) ? OCTET_DIV(mnum, mden) : 0;
+        /*u*/byte mnum = om_A(*A, row + i, i);
+        /*u*/byte mden = om_A(*A, i, i);
+        /*u*/byte multiple = (mnum > 0 && mden > 0) ? OCTET_DIV(mnum, mden) : 0;
         if (multiple == 0)
           continue;
         oaxpy(om_P(*A), om_P(*A), row + i, i, A->cols, multiple);
@@ -245,17 +245,17 @@ static bool decode_phase1(struct pparams *prm, octmat *A, octmat *X, octmat *D,
   return true;
 }
 
-static bool decode_phase2(octmat *A, octmat *D, uint16_t i, uint16_t u,
-                          uint16_t L) {
+static bool decode_phase2(octmat *A, octmat *D, /*u*/short i, /*u*/short u,
+                          /*u*/short L) {
 
-  uint16_t row_start = i, row_end = L;
-  uint16_t col_start = A->cols - u;
+  /*u*/short row_start = i, row_end = L;
+  /*u*/short col_start = A->cols - u;
 
   // FIXME: identify and swap dependent rows
 
-  for (uint16_t row = row_start; row < row_end; row++) {
-    uint16_t row_nonzero = row;
-    uint16_t diag = col_start + (row - row_start);
+  for (/*u*/short row = row_start; row < row_end; row++) {
+    /*u*/short row_nonzero = row;
+    /*u*/short diag = col_start + (row - row_start);
     for (; row_nonzero < row_end; row_nonzero++) {
       if (om_A(*A, row_nonzero, diag) != 0) {
         break;
@@ -273,15 +273,15 @@ static bool decode_phase2(octmat *A, octmat *D, uint16_t i, uint16_t u,
     }
 
     if (om_A(*A, row, diag) > 1) {
-      uint8_t multiple = om_A(*A, row, diag);
+      /*u*/byte multiple = om_A(*A, row, diag);
       oscal(om_P(*A), row, A->cols, OCTET_DIV(1, multiple));
       oscal(om_P(*D), row, D->cols, OCTET_DIV(1, multiple));
     }
 
-    for (uint16_t del_row = row_start; del_row < row_end; del_row++) {
+    for (/*u*/short del_row = row_start; del_row < row_end; del_row++) {
       if (del_row == row)
         continue;
-      uint8_t multiple = om_A(*A, del_row, diag);
+      /*u*/byte multiple = om_A(*A, del_row, diag);
       if (multiple == 0)
         continue;
       oaxpy(om_P(*A), om_P(*A), del_row, row, A->cols, multiple);
@@ -291,14 +291,14 @@ static bool decode_phase2(octmat *A, octmat *D, uint16_t i, uint16_t u,
   return true;
 }
 
-static void decode_phase3(octmat *A, octmat *X, octmat *D, uint16_t i) {
+static void decode_phase3(octmat *A, octmat *X, octmat *D, /*u*/short i) {
   octmat Xb = OM_INITIAL;
   octmat Ab = OM_INITIAL;
   octmat Db = OM_INITIAL;
 
   om_resize(&Xb, i, i);
-  for (uint16_t row = 0; row < i; row++) {
-    for (uint16_t col = 0; col < i; col++) {
+  for (/*u*/short row = 0; row < i; row++) {
+    for (/*u*/short col = 0; col < i; col++) {
       om_A(Xb, row, col) = om_A(*X, row, col);
     }
   }
@@ -312,12 +312,12 @@ static void decode_phase3(octmat *A, octmat *X, octmat *D, uint16_t i) {
   om_destroy(&Db);
 }
 
-static void decode_phase4(octmat *A, octmat *D, uint16_t i, uint16_t u) {
-  uint16_t skip = A->cols - u;
+static void decode_phase4(octmat *A, octmat *D, /*u*/short i, /*u*/short u) {
+  /*u*/short skip = A->cols - u;
 
-  for (uint16_t row = 0; row < i; row++) {
-    for (uint16_t col = 0; col < u; col++) {
-      uint8_t multiple = om_A(*A, row, col + skip);
+  for (/*u*/short row = 0; row < i; row++) {
+    for (/*u*/short col = 0; col < u; col++) {
+      /*u*/byte multiple = om_A(*A, row, col + skip);
       if (multiple == 0)
         continue;
       oaxpy(om_P(*D), om_P(*D), row, i + col, D->cols, multiple);
@@ -325,15 +325,15 @@ static void decode_phase4(octmat *A, octmat *D, uint16_t i, uint16_t u) {
   }
 }
 
-static void decode_phase5(octmat *A, octmat *D, uint16_t i) {
-  uint8_t multiple = 0;
-  for (uint16_t j = 0; j <= i; j++) {
+static void decode_phase5(octmat *A, octmat *D, /*u*/short i) {
+  /*u*/byte multiple = 0;
+  for (/*u*/short j = 0; j <= i; j++) {
     if (om_A(*A, j, j) != 1) {
       multiple = om_A(*A, j, j);
       oscal(om_P(*A), j, A->cols, OCTET_DIV(1, multiple));
       oscal(om_P(*D), j, D->cols, OCTET_DIV(1, multiple));
     }
-    for (uint16_t l = 0; l < j; l++) {
+    for (/*u*/short l = 0; l < j; l++) {
       multiple = om_A(*A, j, l);
       if (multiple == 0)
         continue;
@@ -343,7 +343,7 @@ static void decode_phase5(octmat *A, octmat *D, uint16_t i) {
   }
 }
 
-void precode_matrix_gen(struct pparams *prm, octmat *A, uint16_t overhead) {
+void precode_matrix_gen(struct pparams *prm, octmat *A, /*u*/short overhead) {
   om_resize(A, prm->L + overhead, prm->L);
 
   precode_matrix_init_LDPC1(A, prm->S, prm->B);
@@ -356,7 +356,7 @@ void precode_matrix_gen(struct pparams *prm, octmat *A, uint16_t overhead) {
 
 octmat precode_matrix_intermediate1(struct pparams *prm, octmat *A, octmat *D) {
   bool success;
-  uint16_t i, u;
+  /*u*/short i, u;
 
   uint16_vec c;
   kv_init(c);
@@ -369,9 +369,9 @@ octmat precode_matrix_intermediate1(struct pparams *prm, octmat *A, octmat *D) {
   }
 
   om_copy(&X, A);
-  kv_resize(uint16_t, c, prm->L);
-  for (uint16_t l = 0; l < prm->L; l++) {
-    kv_push(uint16_t, c, l);
+  kv_resize(/*u*/short, c, prm->L);
+  for (/*u*/short l = 0; l < prm->L; l++) {
+    kv_push(/*u*/short, c, l);
   }
 
   success = decode_phase1(prm, A, &X, D, c, &i, &u);
@@ -395,7 +395,7 @@ octmat precode_matrix_intermediate1(struct pparams *prm, octmat *A, octmat *D) {
   om_destroy(A);
 
   om_resize(&C, D->rows, D->cols);
-  for (uint16_t l = 0; l < prm->L; l++) {
+  for (/*u*/short l = 0; l < prm->L; l++) {
     ocopy(om_P(C), om_P(*D), kv_A(c, l), l, C.cols);
   }
   kv_destroy(c);
@@ -405,10 +405,10 @@ octmat precode_matrix_intermediate1(struct pparams *prm, octmat *A, octmat *D) {
 
 bool precode_matrix_intermediate2(octmat *M, octmat *A, octmat *D,
                                   struct pparams *prm, repair_vec *repair_bin,
-                                  struct bitmask *mask, uint16_t num_symbols,
-                                  uint16_t overhead) {
+                                  struct bitmask *mask, /*u*/short num_symbols,
+                                  /*u*/short overhead) {
 
-  uint16_t num_gaps, gap = 0, row = 0;
+  /*u*/short num_gaps, gap = 0, row = 0;
   octmat C;
 
   if (D->cols == 0) {
@@ -437,12 +437,12 @@ bool precode_matrix_intermediate2(octmat *M, octmat *A, octmat *D,
   return true;
 }
 
-octmat precode_matrix_encode(struct pparams *prm, octmat *C, uint32_t isi) {
+octmat precode_matrix_encode(struct pparams *prm, octmat *C, /*u*/int isi) {
   octmat ret = OM_INITIAL;
   om_resize(&ret, 1, C->cols);
 
   uint16_vec idxs = params_get_idxs(prm, isi);
-  for (uint16_t idx = 0; idx < kv_size(idxs); idx++) {
+  for (/*u*/short idx = 0; idx < kv_size(idxs); idx++) {
     oaddrow(om_P(ret), om_P(*C), 0, kv_A(idxs, idx), ret.cols);
   }
   kv_destroy(idxs);
@@ -452,7 +452,7 @@ octmat precode_matrix_encode(struct pparams *prm, octmat *C, uint32_t isi) {
 
 bool precode_matrix_decode(struct pparams *prm, octmat *X,
                            repair_vec *repair_bin, struct bitmask *mask) {
-  uint16_t num_symbols = X->rows, rep_idx, num_gaps, num_repair, overhead;
+  /*u*/short num_symbols = X->rows, rep_idx, num_gaps, num_repair, overhead;
 
   octmat A = OM_INITIAL;
   octmat D = OM_INITIAL;
@@ -474,20 +474,20 @@ AGAIN:
 
   om_resize(&D, prm->S + prm->H + prm->K_padded + overhead, X->cols);
 
-  uint16_t skip = prm->S + prm->H;
-  for (uint16_t row = 0; row < X->rows; row++) {
+  /*u*/short skip = prm->S + prm->H;
+  for (/*u*/short row = 0; row < X->rows; row++) {
     ocopy(om_P(D), om_P(*X), skip + row, row, D.cols);
   }
 
-  for (uint16_t gap = 0; gap < num_symbols && rep_idx < num_repair; gap++) {
+  for (/*u*/short gap = 0; gap < num_symbols && rep_idx < num_repair; gap++) {
     if (bitmask_check(mask, gap))
       continue;
-    uint16_t row = skip + gap;
+    /*u*/short row = skip + gap;
     struct repair_sym rs = kv_A(*repair_bin, rep_idx++);
     ocopy(om_P(D), om_P(rs.row), row, 0, D.cols);
   }
 
-  for (uint16_t row = skip + prm->K_padded; rep_idx < num_repair; row++) {
+  for (/*u*/short row = skip + prm->K_padded; rep_idx < num_repair; row++) {
     struct repair_sym rs = kv_A(*repair_bin, rep_idx++);
     ocopy(om_P(D), om_P(rs.row), row, 0, D.cols);
   }
@@ -508,8 +508,8 @@ AGAIN:
   if (!precode_ok)
     return false;
 
-  uint16_t miss_row = 0;
-  for (uint16_t row = 0; row < num_symbols && miss_row < M.rows; row++) {
+  /*u*/short miss_row = 0;
+  for (/*u*/short row = 0; row < num_symbols && miss_row < M.rows; row++) {
     if (bitmask_check(mask, row))
       continue;
     miss_row++;

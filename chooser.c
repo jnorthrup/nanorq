@@ -4,7 +4,7 @@
 
 #include "chooser.h"
 
-struct chooser chooser_init(uint16_t tp_size) {
+struct chooser chooser_init(/*u*/short tp_size) {
   struct chooser ch = {0};
 
   kv_init(ch.tracking);
@@ -23,29 +23,29 @@ void chooser_clear(struct chooser *ch) {
 }
 
 void chooser_add_tracking_pair(struct chooser *ch, bool is_hdpc,
-                               size_t row_degree) {
+                               int row_degree) {
   struct tracking_pair tp = {is_hdpc, row_degree};
   kv_push(struct tracking_pair, ch->tracking, tp);
 }
 
-uint16_t chooser_non_zero(struct chooser *ch, octmat *A, struct graph *G,
-                          uint16_t i, uint16_t sub_rows, uint16_t sub_cols) {
-  uint16_t non_zero = sub_cols + 1;
+/*u*/short chooser_non_zero(struct chooser *ch, octmat *A, struct graph *G,
+                          /*u*/short i, /*u*/short sub_rows, /*u*/short sub_cols) {
+  /*u*/short non_zero = sub_cols + 1;
 
-  for (uint16_t row = 0; row < sub_rows; row++) {
-    uint16_t non_zero_tmp = 0;
-    uint16_t ones = 0;
-    uint16_t ones_idx[] = {0, 0};
+  for (/*u*/short row = 0; row < sub_rows; row++) {
+    /*u*/short non_zero_tmp = 0;
+    /*u*/short ones = 0;
+    /*u*/short ones_idx[] = {0, 0};
     bool next_row = false;
 
-    for (uint16_t col = 0; col < sub_cols; col++) {
-      if ((uint8_t)(om_A(*A, row + i, col + i)) != 0) {
+    for (/*u*/short col = 0; col < sub_cols; col++) {
+      if ((/*u*/byte)(om_A(*A, row + i, col + i)) != 0) {
         if (++non_zero_tmp > non_zero) {
           next_row = true;
           break;
         }
       }
-      if ((uint8_t)(om_A(*A, row + i, col + i)) == 1) {
+      if ((/*u*/byte)(om_A(*A, row + i, col + i)) == 1) {
         if (++ones <= 2)
           ones_idx[ones - 1] = col;
       }
@@ -83,17 +83,17 @@ uint16_t chooser_non_zero(struct chooser *ch, octmat *A, struct graph *G,
   return non_zero;
 }
 
-uint16_t chooser_pick(struct chooser *ch, struct graph *G, uint16_t i,
-                      uint16_t sub_rows, uint16_t non_zero) {
-  uint16_t chosen = sub_rows;
+/*u*/short chooser_pick(struct chooser *ch, struct graph *G, /*u*/short i,
+                      /*u*/short sub_rows, /*u*/short non_zero) {
+  /*u*/short chosen = sub_rows;
 
   if (non_zero != 2) {
-    uint16_t min_row = sub_rows;
-    uint16_t min_row_hdpc = min_row;
-    size_t min_degree = SIZE_MAX;
-    size_t min_degree_hdpc = min_degree;
-    for (size_t rp_idx = 0; rp_idx < kv_size(ch->r_rows); rp_idx++) {
-      uint16_t row = kv_A(ch->r_rows, rp_idx).first;
+    /*u*/short min_row = sub_rows;
+    /*u*/short min_row_hdpc = min_row;
+    int min_degree = SIZE_MAX;
+    int min_degree_hdpc = min_degree;
+    for (int rp_idx = 0; rp_idx < kv_size(ch->r_rows); rp_idx++) {
+      /*u*/short row = kv_A(ch->r_rows, rp_idx).first;
       if (kv_A(ch->tracking, row + i).is_hdpc) {
         if (kv_A(ch->tracking, row + i).row_degree < min_degree_hdpc) {
           min_degree_hdpc = kv_A(ch->tracking, row + i).row_degree;
@@ -113,7 +113,7 @@ uint16_t chooser_pick(struct chooser *ch, struct graph *G, uint16_t i,
     }
   } else {
     if (ch->only_two_ones) {
-      for (size_t rp_idx = 0; rp_idx < kv_size(ch->r_rows); rp_idx++) {
+      for (int rp_idx = 0; rp_idx < kv_size(ch->r_rows); rp_idx++) {
         if (graph_is_max(G, kv_A(ch->r_rows, rp_idx).second)) {
           chosen = kv_A(ch->r_rows, rp_idx).first;
           break;

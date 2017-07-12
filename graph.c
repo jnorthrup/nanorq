@@ -6,13 +6,13 @@
     X.second = S;                                                              \
   } while (0)
 
-struct graph *graph_new(uint16_t size) {
+struct graph *graph_new(/*u*/short size) {
   struct graph *g = calloc(1, sizeof(struct graph));
 
   kv_init(g->edges);
   kv_resize(struct pair, g->edges, size);
 
-  for (uint16_t i = 0; i < size; i++) {
+  for (/*u*/short i = 0; i < size; i++) {
     ASSIGN_PAIR(kv_A(g->edges, i), 1, i);
   }
   g->max_edges = 1;
@@ -20,18 +20,18 @@ struct graph *graph_new(uint16_t size) {
   return g;
 }
 
-uint16_t graph_find(struct graph *g, uint16_t id) {
-  uint16_t tmp = id;
+/*u*/short graph_find(struct graph *g, /*u*/short id) {
+  /*u*/short tmp = id;
   while (kv_A(g->edges, tmp).second != tmp)
     tmp = kv_A(g->edges, tmp).second;
   return tmp;
 }
 
-void graph_link(struct graph *g, uint16_t node_a, uint16_t node_b) {
-  uint16_t rep_a = graph_find(g, node_a);
-  uint16_t rep_b = graph_find(g, node_b);
+void graph_link(struct graph *g, /*u*/short node_a, /*u*/short node_b) {
+  /*u*/short rep_a = graph_find(g, node_a);
+  /*u*/short rep_b = graph_find(g, node_b);
 
-  uint16_t s = kv_A(g->edges, rep_a).first + kv_A(g->edges, rep_b).first;
+  /*u*/short s = kv_A(g->edges, rep_a).first + kv_A(g->edges, rep_b).first;
 
   ASSIGN_PAIR(kv_A(g->edges, rep_a), s, rep_a);
   ASSIGN_PAIR(kv_A(g->edges, rep_b), s, rep_a);
@@ -46,8 +46,8 @@ void graph_link(struct graph *g, uint16_t node_a, uint16_t node_b) {
   }
 }
 
-bool graph_is_max(struct graph *g, uint16_t id) {
-  uint16_t e = graph_find(g, id);
+bool graph_is_max(struct graph *g, /*u*/short id) {
+  /*u*/short e = graph_find(g, id);
   return g->max_edges == kv_A(g->edges, e).first;
 }
 
