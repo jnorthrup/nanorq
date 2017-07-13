@@ -1,0 +1,9 @@
+<map id="bitmask_gaps" name="bitmask_gaps">
+<area shape="rect" id="node2" href="$d6/d1a/precode_8c_aba331164c0af3eef69c0ac91d8fe2eba.html#aba331164c0af3eef69c0ac91d8fe2eba" title="decode_phase0" alt="" coords="156,5,269,32"/>
+<area shape="rect" id="node3" href="$da/def/precode_8h_a2b6a5db8f90fc98b364cb5ed3b5eca24.html#a2b6a5db8f90fc98b364cb5ed3b5eca24" title="precode_matrix_intermediate2" alt="" coords="317,56,513,83"/>
+<area shape="rect" id="node4" href="$da/def/precode_8h_aee2113e8f8d7e54052fc8db5dd71fd1f.html#aee2113e8f8d7e54052fc8db5dd71fd1f" title="precode_matrix_decode" alt="" coords="561,107,721,133"/>
+<area shape="rect" id="node7" href="$d6/da2/nanorq_8h_a4199d347f3a4d6e329a6b76fde635121.html#a4199d347f3a4d6e329a6b76fde635121" title="nanorq_decoder_add\l_symbol" alt="" coords="344,158,487,199"/>
+<area shape="rect" id="node8" href="$d6/da2/nanorq_8h_a327401e07be8814bccd6c39facecdbe1.html#a327401e07be8814bccd6c39facecdbe1" title="nanorq_num_missing" alt="" coords="569,220,714,247"/>
+<area shape="rect" id="node5" href="$d6/da2/nanorq_8h_aa1dcf83669e76931be0e6e7a1f02c185.html#aa1dcf83669e76931be0e6e7a1f02c185" title="nanorq_decode_block" alt="" coords="769,111,917,137"/>
+<area shape="rect" id="node6" href="$da/d0d/decode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="965,165,1016,192"/>
+</map>

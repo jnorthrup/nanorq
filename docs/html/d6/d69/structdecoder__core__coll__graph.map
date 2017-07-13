@@ -1,0 +1,5 @@
+<map id="decoder_core" name="decoder_core">
+<area shape="rect" id="node2" href="$de/d35/octmat_8h.html#d2/dbf/structoctmat" title="{octmat\n|+ data\l+ rows\l+ cols\l+ cols_al\l|}" alt="" coords="5,42,80,163"/>
+<area shape="rect" id="node3" href="$de/dc2/structbitmask.html" title="{bitmask\n||+ kvec_t()\l}" alt="" coords="110,64,191,141"/>
+<area shape="rect" id="node4" href="$da/d33/params_8h.html#d0/d1d/structpparams" title="{pparams\n|+ K_padded\l+ S\l+ H\l+ W\l+ L\l+ P\l+ P1\l+ B\l+ J\l|}" alt="" coords="215,5,307,200"/>
+</map>

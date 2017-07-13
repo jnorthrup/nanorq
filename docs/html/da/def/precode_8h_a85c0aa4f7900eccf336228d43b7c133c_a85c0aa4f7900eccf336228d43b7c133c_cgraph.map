@@ -1,0 +1,17 @@
+<map id="precode_matrix_gen" name="precode_matrix_gen">
+<area shape="rect" id="node2" href="$d2/dd1/octmat_8c_a0db07e8a815b999f9837c74c31213cdb.html#a0db07e8a815b999f9837c74c31213cdb" title="om_resize" alt="" coords="645,32,728,58"/>
+<area shape="rect" id="node4" href="$d6/d1a/precode_8c_a7fb81075ad77cf8790ba330c7fc6c221.html#a7fb81075ad77cf8790ba330c7fc6c221" title="precode_matrix_add\l_G_ENC" alt="" coords="213,236,352,278"/>
+<area shape="rect" id="node9" href="$d6/d1a/precode_8c_af2734c7ddac33888abcc52e10df15665.html#af2734c7ddac33888abcc52e10df15665" title="precode_matrix_add\l_identity" alt="" coords="213,171,352,212"/>
+<area shape="rect" id="node10" href="$d6/d1a/precode_8c_a64e2c5739177d2991dea9ab54f2469b6.html#a64e2c5739177d2991dea9ab54f2469b6" title="precode_matrix_init_HDPC" alt="" coords="192,120,373,146"/>
+<area shape="rect" id="node15" href="$d6/d1a/precode_8c_a39d289c7bff03b667e282e44b3decb5f.html#a39d289c7bff03b667e282e44b3decb5f" title="precode_matrix_init\l_LDPC1" alt="" coords="215,302,350,343"/>
+<area shape="rect" id="node16" href="$d6/d1a/precode_8c_a992134f8be1689ebd0d9aea6fafe217a.html#a992134f8be1689ebd0d9aea6fafe217a" title="precode_matrix_init\l_LDPC2" alt="" coords="215,367,350,408"/>
+<area shape="rect" id="node3" href="$d3/d5a/oblas_8h_a1185f4074fc7932ed79a6f216203f2c4.html#a1185f4074fc7932ed79a6f216203f2c4" title="ozero" alt="" coords="781,32,836,58"/>
+<area shape="rect" id="node5" href="$da/de3/params_8c_a5e51228448fbdf5e0d4310916b8eea93.html#a5e51228448fbdf5e0d4310916b8eea93" title="params_get_idxs" alt="" coords="449,272,570,298"/>
+<area shape="rect" id="node6" href="$da/de3/params_8c_a071cc3dcf4ecfd727003e3563af63add.html#a071cc3dcf4ecfd727003e3563af63add" title="gen_tuple" alt="" coords="647,246,726,273"/>
+<area shape="rect" id="node7" href="$da/de3/params_8c_aa429ac3cf74cd69c05967cd86ccec2c3.html#aa429ac3cf74cd69c05967cd86ccec2c3" title="deg" alt="" coords="787,246,830,273"/>
+<area shape="rect" id="node8" href="$d6/df4/rand_8c_a080635c045f160d270060da9f4d8e5b7.html#a080635c045f160d270060da9f4d8e5b7" title="rnd_get" alt="" coords="776,170,841,197"/>
+<area shape="rect" id="node11" href="$d3/d5a/oblas_8h_a85e2604cc8aec26b591370ab48307bcc.html#a85e2604cc8aec26b591370ab48307bcc" title="ogemm" alt="" coords="477,170,542,197"/>
+<area shape="rect" id="node12" href="$d2/dd1/octmat_8c_ac7854c0635a9441a5a352f95dbbd7bbd.html#ac7854c0635a9441a5a352f95dbbd7bbd" title="om_destroy" alt="" coords="464,221,555,248"/>
+<area shape="rect" id="node13" href="$d6/d1a/precode_8c_a88ec15cf62d897ab1df189175429c7f8.html#a88ec15cf62d897ab1df189175429c7f8" title="precode_matrix_make\l_GAMMA" alt="" coords="434,54,585,95"/>
+<area shape="rect" id="node14" href="$d6/d1a/precode_8c_a291ab32ffee6435673b4693d8c74952f.html#a291ab32ffee6435673b4693d8c74952f" title="precode_matrix_make_MT" alt="" coords="421,120,597,146"/>
+</map>

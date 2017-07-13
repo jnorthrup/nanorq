@@ -1,0 +1,10 @@
+<map id="nanorq" name="nanorq">
+<area shape="rect" id="node2" href="$d1/d0b/nanorq_8c.html#d4/db6/structencoder__core" title="{encoder_core\n|+ sbn\l+ num_symbols\l+ symbol_size\l|}" alt="" coords="5,277,120,384"/>
+<area shape="rect" id="node3" href="$de/d35/octmat_8h.html#d2/dbf/structoctmat" title="{octmat\n|+ data\l+ rows\l+ cols\l+ cols_al\l|}" alt="" coords="64,42,139,163"/>
+<area shape="rect" id="node6" href="$d1/d0b/nanorq_8c.html#da/dd8/structdecoder__core" title="{decoder_core\n|+ sbn\l+ num_symbols\l+ symbol_size\l+ repair_bin\l|}" alt="" coords="261,270,376,391"/>
+<area shape="rect" id="node4" href="$da/d33/params_8h.html#d0/d1d/structpparams" title="{pparams\n|+ K_padded\l+ S\l+ H\l+ W\l+ L\l+ P\l+ P1\l+ B\l+ J\l|}" alt="" coords="217,5,309,200"/>
+<area shape="rect" id="node5" href="$d1/d0b/nanorq_8c.html#db/d68/structoti__common" title="{oti_common\n|+ F\l+ T\l+ Al\l+ SS\l+ WS\l|}" alt="" coords="144,263,237,399"/>
+<area shape="rect" id="node7" href="$de/dc2/structbitmask.html" title="{bitmask\n||+ kvec_t()\l}" alt="" coords="343,64,425,141"/>
+<area shape="rect" id="node8" href="$d1/d0b/nanorq_8c.html#d3/d98/structpartition" title="{partition\n|+ IL\l+ IS\l+ JL\l+ JS\l|}" alt="" coords="401,270,469,391"/>
+<area shape="rect" id="node9" href="$d1/d0b/nanorq_8c.html#d0/d10/structoti__scheme" title="{oti_scheme\n|+ Z\l+ N\l+ Kt\l|}" alt="" coords="493,277,582,384"/>
+</map>

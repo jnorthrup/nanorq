@@ -1,0 +1,9 @@
+<map id="precode_matrix_init_HDPC" name="precode_matrix_init_HDPC">
+<area shape="rect" id="node2" href="$d3/d5a/oblas_8h_a85e2604cc8aec26b591370ab48307bcc.html#a85e2604cc8aec26b591370ab48307bcc" title="ogemm" alt="" coords="290,5,355,32"/>
+<area shape="rect" id="node3" href="$d2/dd1/octmat_8c_ac7854c0635a9441a5a352f95dbbd7bbd.html#ac7854c0635a9441a5a352f95dbbd7bbd" title="om_destroy" alt="" coords="277,56,368,83"/>
+<area shape="rect" id="node4" href="$d2/dd1/octmat_8c_a0db07e8a815b999f9837c74c31213cdb.html#a0db07e8a815b999f9837c74c31213cdb" title="om_resize" alt="" coords="459,165,541,192"/>
+<area shape="rect" id="node6" href="$d6/d1a/precode_8c_a88ec15cf62d897ab1df189175429c7f8.html#a88ec15cf62d897ab1df189175429c7f8" title="precode_matrix_make\l_GAMMA" alt="" coords="247,158,398,199"/>
+<area shape="rect" id="node7" href="$d6/d1a/precode_8c_a291ab32ffee6435673b4693d8c74952f.html#a291ab32ffee6435673b4693d8c74952f" title="precode_matrix_make_MT" alt="" coords="235,224,411,251"/>
+<area shape="rect" id="node5" href="$d3/d5a/oblas_8h_a1185f4074fc7932ed79a6f216203f2c4.html#a1185f4074fc7932ed79a6f216203f2c4" title="ozero" alt="" coords="589,165,644,192"/>
+<area shape="rect" id="node8" href="$d6/df4/rand_8c_a080635c045f160d270060da9f4d8e5b7.html#a080635c045f160d270060da9f4d8e5b7" title="rnd_get" alt="" coords="467,224,533,251"/>
+</map>
