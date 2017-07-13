@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     }
 
 
-    char *filename = argc < 4 ? defaultPayloadName : argv[3];
+    char *filename = argc < 3 ? defaultPayloadName : argv[2];
     FILE *ih = fopen(filename, "r");
     uint32_t oti_scheme;
     uint64_t oti_common;

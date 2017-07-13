@@ -8,6 +8,7 @@
 
 
 #include <time.h>
+#include <memory.h>
 #include "nanorq.h"
 
 #include "io.h"
@@ -30,15 +31,15 @@ void dump_esi(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn,
     }
 }
 
-void dump_block(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn) {
-    float expected_loss = 6.0;
-    int overhead = 5;
+void dump_block(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn, double expected_loss, int OVERHEAD) {
+
+    int overhead = OVERHEAD;
 
     uint32_t num_esi = nanorq_block_symbols(rq, sbn);
     int num_dropped = 0, num_rep = 0;
     for (uint32_t esi = 0; esi < num_esi; esi++) {
         float dropped = (float) rand() / (float) RAND_MAX * (float) 100.0;
-        float drop_prob = expected_loss;
+        float drop_prob = (float) expected_loss;
         if (dropped < drop_prob) {
             num_dropped++;
         } else {
@@ -55,19 +56,35 @@ void dump_block(nanorq *rq, struct ioctx *myio, FILE *oh, uint8_t sbn) {
 }
 
 void usage(char *prog) {
-    fprintf(stderr, "usage:\n%s <srcFilename> <packet_size> [payloadFilename]", prog);
+    fprintf(stderr,
+            "usage:\n%s <srcFilename> [packet_size|600] [payloadFilename|data.rq] [expected_loss|6.0] [overhead|5]",
+            prog);
     exit(1);
 }
 
 int main(int argc, char **argv) {
-    if (argc < 3)
+    if (argc < 2)
         usage(argv[0]);
 
     char *srcFilename = argv[1];
-    char *packetSize = argv[2];
+    char *packetSize = argc < 3 ? "600" : argv[2];
     char *filename = argc < 4 ? defaultPayloadName : argv[3];
+    double expected_loss;
+    if (argc < 5) {
+        expected_loss = 6.0;
+    } else {
+        char *dummy;
+        expected_loss = strtod(argv[4], &dummy);
+    }
+    int overhead;
+    if (argc < 6) {
+        overhead = (int) 5;
+    } else {
+        char *dummy;
+        overhead = (int) strtol(argv[5], &dummy, 10);
+    }
 
-    struct ioctx *myio=NULL;
+    struct ioctx *myio = NULL;
     {
         myio = ioctx_from_file(srcFilename, 1);
         if (!myio) {
@@ -76,7 +93,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    nanorq *rq=NULL;
+    nanorq *rq = NULL;
     {
         size_t filesize = myio->size(myio);
 
@@ -96,7 +113,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    uint8_t num_sbn=0;
+    uint8_t num_sbn = 0;
     {
         num_sbn = nanorq_blocks(rq);
         for (uint8_t b = 0; b < num_sbn; b++) {
@@ -111,7 +128,7 @@ int main(int argc, char **argv) {
         fwrite(&oti_common, 1, sizeof(oti_common), oh);
         fwrite(&oti_scheme, 1, sizeof(oti_scheme), oh);
         for (uint8_t sbn = 0; sbn < num_sbn; sbn++) {
-            dump_block(rq, myio, oh, sbn);
+            dump_block(rq, myio, oh, sbn, expected_loss, overhead);
         }
         fclose(oh);
     }
