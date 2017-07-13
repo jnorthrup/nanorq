@@ -1,7 +1,5 @@
 #pragma once
 
-#include "util.h"
-
 struct graph {
   pair_vec edges;
   uint16_t max_edges;

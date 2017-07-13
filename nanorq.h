@@ -1,8 +1,5 @@
 #pragma once
 
-
-#include "io.h"
-
 static const uint64_t NANORQ_MAX_TRANSFER = 946270874880ULL; // ~881 GB
 static char *const defaultPayloadName = "data.rq";
 

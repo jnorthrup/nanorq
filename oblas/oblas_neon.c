@@ -1,4 +1,9 @@
 #ifdef OBLAS_NEON
+
+
+#include "octmat.h"
+#include "octtables.h"
+
 #include "oblas.h"
 #include "octmul.h"
 

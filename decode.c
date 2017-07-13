@@ -1,3 +1,5 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnusedImportStatement"
 #include <stdbool.h>
 #include <endian.h>
 #include <stdio.h>
@@ -5,6 +7,7 @@
 #include <stdint.h>
 
 #include "nanorq.h"
+#include "io.h"
 
 
 void usage(char *prog) {
@@ -70,3 +73,4 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+#pragma clang diagnostic pop

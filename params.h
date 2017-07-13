@@ -1,8 +1,5 @@
 #pragma once
 
-#include "table2.h"
-#include "util.h"
-#include <stdbool.h>
 
 struct pparams {
   uint16_t K_padded;

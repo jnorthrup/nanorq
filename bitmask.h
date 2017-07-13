@@ -1,8 +1,5 @@
 #pragma once
 
-
-#include "kvec.h"
-
 struct bitmask {
   kvec_t(uint32_t) mask;
 };

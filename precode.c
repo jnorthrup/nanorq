@@ -3,13 +3,19 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "octmat.h"
+#include "kvec.h"
 #include "bitmask.h"
+#include "util.h"
 #include "chooser.h"
 #include "params.h"
 #include "precode.h"
 #include "rand.h"
 #include "octtables.h"
+#include "octmat.h"
+#include "octtables.h"
 #include "oblas.h"
+#include "graph.h"
 
 static void precode_matrix_init_LDPC1(octmat *A, uint16_t S, uint16_t B) {
   uint16_t row, col;

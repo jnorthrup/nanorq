@@ -4,6 +4,9 @@
 #include <stdint.h>
 #include <memory.h>
 
+#include "octmat.h"
+#include "octtables.h"
+
 #include "oblas.h"
 
 void om_resize(octmat *v, uint16_t r, uint16_t c) {

@@ -1,5 +1,4 @@
 #pragma once
-#include <stdint.h>
 
 static const uint16_t K_padded[] = {
     10,    12,    18,    20,    26,    30,    32,    36,    42,    46,    48,

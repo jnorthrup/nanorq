@@ -1,6 +1,4 @@
 #pragma once
-#include "bitmask.h"
-#include "params.h"
 
 void precode_matrix_gen(struct pparams *prm, octmat *A, uint16_t overhead);
 

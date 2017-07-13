@@ -4,7 +4,13 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#include "kvec.h"
+
+#include "octmat.h"
+
+#include "util.h"
 #include "params.h"
+#include "table2.h"
 #include "rand.h"
 
 struct ptuple {

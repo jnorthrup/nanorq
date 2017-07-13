@@ -2,8 +2,35 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <memory.h>
+#include <stdbool.h>
+
+#include "io.h"
+#include "nanorq.h"
+
+
+#include "kvec.h"
+#include "bitmask.h"
+
+#include "table2.h"
+
+
+#include "octmat.h"
+
+
+#include "util.h"
+
+#include "params.h"
+
+#include "precode.h"
+#include "util.h"
+#include "graph.h"
 
 #include "chooser.h"
+
 
 struct chooser chooser_init(uint16_t tp_size) {
   struct chooser ch = {0};
@@ -84,7 +111,7 @@ uint16_t chooser_non_zero(struct chooser *ch, octmat *A, struct graph *G,
   return non_zero;
 }
 
-uint16_t chooser_pick(struct chooser *ch, struct graph *G, uint16_t i,
+uint16_t chooser_pick(struct chooser * ch, struct graph * G, uint16_t i,
                       uint16_t sub_rows, uint16_t non_zero) {
   uint16_t chosen = sub_rows;
 

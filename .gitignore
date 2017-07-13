@@ -16,3 +16,4 @@ nanorq_decode
 nanorq_encode
 *.cbp
 tablegen
+Makefile

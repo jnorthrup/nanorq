@@ -1,10 +1,18 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <stdio.h>
 #include <stdint.h>
 #include <memory.h>
-#include "nanorq.h"
+#include <stdbool.h>
+#include "octmat.h"
+#include "kvec.h"
+#include "bitmask.h"
+#include "util.h"
+#include "params.h"
 #include "precode.h"
+#include "io.h"
+#include "nanorq.h"
+#include "table2.h"
+
 
 struct oti_common {
     size_t F;    /* input size in bytes */

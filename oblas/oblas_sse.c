@@ -3,6 +3,9 @@
 #include <emmintrin.h> /* sse2 */
 #include <tmmintrin.h> /* sse3 */
 
+#include "octmat.h"
+#include "octtables.h"
+
 #include "oblas.h"
 #include "octmul_hilo.h"
 

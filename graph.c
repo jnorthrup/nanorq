@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "kvec.h"
 
+#include "octmat.h"
+#include "util.h"
 #include "graph.h"
 
 #define ASSIGN_PAIR(X, F, S)                                                   \
