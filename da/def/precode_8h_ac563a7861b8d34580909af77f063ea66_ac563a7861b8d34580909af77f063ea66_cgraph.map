@@ -1,0 +1,9 @@
+<map id="precode_matrix_encode" name="precode_matrix_encode">
+<area shape="rect" id="node2" href="$d3/d5a/oblas_8h_a06e2686eb0ba47ab72527cc2d8924583.html#a06e2686eb0ba47ab72527cc2d8924583" title="oaddrow" alt="" coords="239,5,309,32"/>
+<area shape="rect" id="node3" href="$d2/dd1/octmat_8c_a0db07e8a815b999f9837c74c31213cdb.html#a0db07e8a815b999f9837c74c31213cdb" title="om_resize" alt="" coords="233,56,315,83"/>
+<area shape="rect" id="node5" href="$da/de3/params_8c_a5e51228448fbdf5e0d4310916b8eea93.html#a5e51228448fbdf5e0d4310916b8eea93" title="params_get_idxs" alt="" coords="213,107,335,133"/>
+<area shape="rect" id="node4" href="$d3/d5a/oblas_8h_a1185f4074fc7932ed79a6f216203f2c4.html#a1185f4074fc7932ed79a6f216203f2c4" title="ozero" alt="" coords="395,56,449,83"/>
+<area shape="rect" id="node6" href="$da/de3/params_8c_a071cc3dcf4ecfd727003e3563af63add.html#a071cc3dcf4ecfd727003e3563af63add" title="gen_tuple" alt="" coords="383,107,461,133"/>
+<area shape="rect" id="node7" href="$da/de3/params_8c_aa429ac3cf74cd69c05967cd86ccec2c3.html#aa429ac3cf74cd69c05967cd86ccec2c3" title="deg" alt="" coords="521,81,563,108"/>
+<area shape="rect" id="node8" href="$d6/df4/rand_8c_a080635c045f160d270060da9f4d8e5b7.html#a080635c045f160d270060da9f4d8e5b7" title="rnd_get" alt="" coords="509,132,575,159"/>
+</map>

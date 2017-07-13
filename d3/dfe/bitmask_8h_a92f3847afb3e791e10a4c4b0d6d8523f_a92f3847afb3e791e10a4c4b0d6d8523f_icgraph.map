@@ -1,0 +1,8 @@
+<map id="bitmask_new" name="bitmask_new">
+<area shape="rect" id="node2" href="$d1/d0b/nanorq_8c_a9e0825ce320f90492e45baad6a50ff4c.html#a9e0825ce320f90492e45baad6a50ff4c" title="nanorq_block_decoder" alt="" coords="152,97,304,123"/>
+<area shape="rect" id="node3" href="$d6/da2/nanorq_8h_a4199d347f3a4d6e329a6b76fde635121.html#a4199d347f3a4d6e329a6b76fde635121" title="nanorq_decoder_add\l_symbol" alt="" coords="355,5,497,47"/>
+<area shape="rect" id="node5" href="$d6/da2/nanorq_8h_a327401e07be8814bccd6c39facecdbe1.html#a327401e07be8814bccd6c39facecdbe1" title="nanorq_num_missing" alt="" coords="353,71,499,98"/>
+<area shape="rect" id="node6" href="$d6/da2/nanorq_8h_a629b649caa8a354b60fe63cd1570a061.html#a629b649caa8a354b60fe63cd1570a061" title="nanorq_num_repair" alt="" coords="360,122,492,149"/>
+<area shape="rect" id="node7" href="$d6/da2/nanorq_8h_aa1dcf83669e76931be0e6e7a1f02c185.html#aa1dcf83669e76931be0e6e7a1f02c185" title="nanorq_decode_block" alt="" coords="352,173,500,199"/>
+<area shape="rect" id="node4" href="$da/d0d/decode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="548,97,599,123"/>
+</map>

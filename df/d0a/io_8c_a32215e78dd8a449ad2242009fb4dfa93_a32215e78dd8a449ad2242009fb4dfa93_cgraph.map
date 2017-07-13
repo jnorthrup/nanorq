@@ -1,0 +1,7 @@
+<map id="ioctx_from_file" name="ioctx_from_file">
+<area shape="rect" id="node2" href="$df/d0a/io_8c_ac4987f98b53f67117c030844650d0446.html#ac4987f98b53f67117c030844650d0446" title="fileio_destroy" alt="" coords="160,5,259,32"/>
+<area shape="rect" id="node3" href="$df/d0a/io_8c_a23b14756123f74eedd6a413f0fd2dcee.html#a23b14756123f74eedd6a413f0fd2dcee" title="fileio_read" alt="" coords="169,56,250,83"/>
+<area shape="rect" id="node4" href="$df/d0a/io_8c_a437c80e8d6caac9daec5b8289503cb1d.html#a437c80e8d6caac9daec5b8289503cb1d" title="fileio_seek" alt="" coords="167,107,251,133"/>
+<area shape="rect" id="node5" href="$df/d0a/io_8c_a7f598ade579934c66b41f35bf492a376.html#a7f598ade579934c66b41f35bf492a376" title="fileio_size" alt="" coords="169,157,249,184"/>
+<area shape="rect" id="node6" href="$df/d0a/io_8c_a6ec63dcb76a7a2a1ab253b88130a05d6.html#a6ec63dcb76a7a2a1ab253b88130a05d6" title="fileio_write" alt="" coords="167,208,251,235"/>
+</map>

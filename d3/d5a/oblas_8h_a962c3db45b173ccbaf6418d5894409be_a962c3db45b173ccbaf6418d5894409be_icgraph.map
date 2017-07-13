@@ -1,0 +1,16 @@
+<map id="oaxpy" name="oaxpy">
+<area shape="rect" id="node2" href="$d6/d1a/precode_8c_adde325d451f8ec9eb7f8f4542d81e884.html#adde325d451f8ec9eb7f8f4542d81e884" title="decode_phase1" alt="" coords="111,5,224,32"/>
+<area shape="rect" id="node13" href="$d6/d1a/precode_8c_a41bb3b163c071597877ad0de9bbbd756.html#a41bb3b163c071597877ad0de9bbbd756" title="decode_phase2" alt="" coords="111,56,224,83"/>
+<area shape="rect" id="node14" href="$d6/d1a/precode_8c_a84a742aaa0a90e37baf8db8cd5a035b7.html#a84a742aaa0a90e37baf8db8cd5a035b7" title="decode_phase4" alt="" coords="111,107,224,133"/>
+<area shape="rect" id="node15" href="$d6/d1a/precode_8c_a16925f32060a478093240f3b35ee664a.html#a16925f32060a478093240f3b35ee664a" title="decode_phase5" alt="" coords="111,157,224,184"/>
+<area shape="rect" id="node3" href="$da/def/precode_8h_a262ba8efa6b500c1e7a3cb0451245291.html#a262ba8efa6b500c1e7a3cb0451245291" title="precode_matrix_intermediate1" alt="" coords="272,81,468,108"/>
+<area shape="rect" id="node4" href="$d6/da2/nanorq_8h_ad6a9288685637cdfe83303f66b087a29.html#ad6a9288685637cdfe83303f66b087a29" title="nanorq_generate_symbols" alt="" coords="527,56,701,83"/>
+<area shape="rect" id="node9" href="$da/def/precode_8h_a2b6a5db8f90fc98b364cb5ed3b5eca24.html#a2b6a5db8f90fc98b364cb5ed3b5eca24" title="precode_matrix_intermediate2" alt="" coords="516,107,712,133"/>
+<area shape="rect" id="node5" href="$dd/d3f/encode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1304,31,1355,57"/>
+<area shape="rect" id="node6" href="$d6/da2/nanorq_8h_a956615eb4ea3ce34369951295e93f708.html#a956615eb4ea3ce34369951295e93f708" title="nanorq_encode" alt="" coords="785,56,895,83"/>
+<area shape="rect" id="node7" href="$dd/d3f/encode_8c_a0993cb61d7e4c1b1a1606d159f5b1410.html#a0993cb61d7e4c1b1a1606d159f5b1410" title="dump_esi" alt="" coords="1003,56,1081,83"/>
+<area shape="rect" id="node8" href="$dd/d3f/encode_8c_ae7f8bbf4dcea92f802d2521fa0264f93.html#ae7f8bbf4dcea92f802d2521fa0264f93" title="dump_block" alt="" coords="1164,56,1256,83"/>
+<area shape="rect" id="node10" href="$da/def/precode_8h_aee2113e8f8d7e54052fc8db5dd71fd1f.html#aee2113e8f8d7e54052fc8db5dd71fd1f" title="precode_matrix_decode" alt="" coords="760,107,920,133"/>
+<area shape="rect" id="node11" href="$d6/da2/nanorq_8h_aa1dcf83669e76931be0e6e7a1f02c185.html#aa1dcf83669e76931be0e6e7a1f02c185" title="nanorq_decode_block" alt="" coords="968,107,1116,133"/>
+<area shape="rect" id="node12" href="$da/d0d/decode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1185,107,1235,133"/>
+</map>

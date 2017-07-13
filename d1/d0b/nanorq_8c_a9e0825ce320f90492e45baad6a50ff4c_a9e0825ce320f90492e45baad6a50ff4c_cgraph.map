@@ -1,0 +1,8 @@
+<map id="nanorq_block_decoder" name="nanorq_block_decoder">
+<area shape="rect" id="node2" href="$d6/d74/bitmask_8c_ad97925cb0b34333cab279b3034100c7b.html#ad97925cb0b34333cab279b3034100c7b" title="bitmask_new" alt="" coords="233,5,332,32"/>
+<area shape="rect" id="node3" href="$d1/d0b/nanorq_8c_a4c02c9d148e282c464ab013a678387d0.html#a4c02c9d148e282c464ab013a678387d0" title="nanorq_block_symbols" alt="" coords="205,56,360,83"/>
+<area shape="rect" id="node4" href="$d2/dd1/octmat_8c_a0db07e8a815b999f9837c74c31213cdb.html#a0db07e8a815b999f9837c74c31213cdb" title="om_resize" alt="" coords="241,107,324,133"/>
+<area shape="rect" id="node6" href="$da/de3/params_8c_a6ec9c111e5ac045945d74371bc5fb5cb.html#a6ec9c111e5ac045945d74371bc5fb5cb" title="params_init" alt="" coords="238,157,327,184"/>
+<area shape="rect" id="node5" href="$d3/d5a/oblas_8h_a1185f4074fc7932ed79a6f216203f2c4.html#a1185f4074fc7932ed79a6f216203f2c4" title="ozero" alt="" coords="416,107,471,133"/>
+<area shape="rect" id="node7" href="$da/de3/params_8c_ad7c869ce8790c11bcabfd228cd6d8906.html#ad7c869ce8790c11bcabfd228cd6d8906" title="is_prime" alt="" coords="408,157,479,184"/>
+</map>

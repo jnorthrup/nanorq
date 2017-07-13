@@ -1,0 +1,12 @@
+<map id="nanorq_decoder_add_symbol" name="nanorq_decoder_add_symbol">
+<area shape="rect" id="node2" href="$d6/d74/bitmask_8c_ad67256bcd0a6b5b9e739bc889e22a45b.html#ad67256bcd0a6b5b9e739bc889e22a45b" title="bitmask_check" alt="" coords="217,5,327,32"/>
+<area shape="rect" id="node3" href="$d6/d74/bitmask_8c_a3b8b7d670ea2a2526b93623a8681341a.html#a3b8b7d670ea2a2526b93623a8681341a" title="bitmask_gaps" alt="" coords="221,56,323,83"/>
+<area shape="rect" id="node4" href="$d6/d74/bitmask_8c_a0b049fc6e42d4edb47d0ec69bd5af7ef.html#a0b049fc6e42d4edb47d0ec69bd5af7ef" title="bitmask_set" alt="" coords="225,107,319,133"/>
+<area shape="rect" id="node5" href="$d1/d0b/nanorq_8c_a9e0825ce320f90492e45baad6a50ff4c.html#a9e0825ce320f90492e45baad6a50ff4c" title="nanorq_block_decoder" alt="" coords="196,157,348,184"/>
+<area shape="rect" id="node8" href="$d2/dd1/octmat_8c_a0db07e8a815b999f9837c74c31213cdb.html#a0db07e8a815b999f9837c74c31213cdb" title="om_resize" alt="" coords="432,208,515,235"/>
+<area shape="rect" id="node6" href="$d6/d74/bitmask_8c_ad97925cb0b34333cab279b3034100c7b.html#ad97925cb0b34333cab279b3034100c7b" title="bitmask_new" alt="" coords="424,107,523,133"/>
+<area shape="rect" id="node7" href="$d1/d0b/nanorq_8c_a4c02c9d148e282c464ab013a678387d0.html#a4c02c9d148e282c464ab013a678387d0" title="nanorq_block_symbols" alt="" coords="396,157,551,184"/>
+<area shape="rect" id="node10" href="$da/de3/params_8c_a6ec9c111e5ac045945d74371bc5fb5cb.html#a6ec9c111e5ac045945d74371bc5fb5cb" title="params_init" alt="" coords="429,56,518,83"/>
+<area shape="rect" id="node9" href="$d3/d5a/oblas_8h_a1185f4074fc7932ed79a6f216203f2c4.html#a1185f4074fc7932ed79a6f216203f2c4" title="ozero" alt="" coords="607,208,661,235"/>
+<area shape="rect" id="node11" href="$da/de3/params_8c_ad7c869ce8790c11bcabfd228cd6d8906.html#ad7c869ce8790c11bcabfd228cd6d8906" title="is_prime" alt="" coords="599,56,669,83"/>
+</map>
