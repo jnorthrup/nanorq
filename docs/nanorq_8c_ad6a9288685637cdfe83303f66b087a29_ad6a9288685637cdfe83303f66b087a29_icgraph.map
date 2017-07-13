@@ -1,0 +1,6 @@
+<map id="nanorq_generate_symbols" name="nanorq_generate_symbols">
+<area shape="rect" id="node2" href="$encode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="653,5,704,32"/>
+<area shape="rect" id="node3" href="$nanorq_8c_a956615eb4ea3ce34369951295e93f708.html#a956615eb4ea3ce34369951295e93f708" title="nanorq_encode" alt="" coords="228,31,339,57"/>
+<area shape="rect" id="node4" href="$encode_8c_a0993cb61d7e4c1b1a1606d159f5b1410.html#a0993cb61d7e4c1b1a1606d159f5b1410" title="dump_esi" alt="" coords="387,31,465,57"/>
+<area shape="rect" id="node5" href="$encode_8c_ae7f8bbf4dcea92f802d2521fa0264f93.html#ae7f8bbf4dcea92f802d2521fa0264f93" title="dump_block" alt="" coords="513,31,605,57"/>
+</map>

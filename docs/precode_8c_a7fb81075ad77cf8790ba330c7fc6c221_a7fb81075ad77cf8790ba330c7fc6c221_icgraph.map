@@ -1,0 +1,11 @@
+<map id="precode_matrix_add_G_ENC" name="precode_matrix_add_G_ENC">
+<area shape="rect" id="node2" href="$precode_8c_a85c0aa4f7900eccf336228d43b7c133c.html#a85c0aa4f7900eccf336228d43b7c133c" title="precode_matrix_gen" alt="" coords="192,56,331,83"/>
+<area shape="rect" id="node3" href="$nanorq_8c_ad6a9288685637cdfe83303f66b087a29.html#ad6a9288685637cdfe83303f66b087a29" title="nanorq_generate_symbols" alt="" coords="379,31,553,57"/>
+<area shape="rect" id="node8" href="$precode_8c_aee2113e8f8d7e54052fc8db5dd71fd1f.html#aee2113e8f8d7e54052fc8db5dd71fd1f" title="precode_matrix_decode" alt="" coords="386,81,546,108"/>
+<area shape="rect" id="node4" href="$encode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1064,5,1115,32"/>
+<area shape="rect" id="node5" href="$nanorq_8c_a956615eb4ea3ce34369951295e93f708.html#a956615eb4ea3ce34369951295e93f708" title="nanorq_encode" alt="" coords="620,31,731,57"/>
+<area shape="rect" id="node6" href="$encode_8c_a0993cb61d7e4c1b1a1606d159f5b1410.html#a0993cb61d7e4c1b1a1606d159f5b1410" title="dump_esi" alt="" coords="797,31,876,57"/>
+<area shape="rect" id="node7" href="$encode_8c_ae7f8bbf4dcea92f802d2521fa0264f93.html#ae7f8bbf4dcea92f802d2521fa0264f93" title="dump_block" alt="" coords="924,31,1016,57"/>
+<area shape="rect" id="node9" href="$nanorq_8c_aa1dcf83669e76931be0e6e7a1f02c185.html#aa1dcf83669e76931be0e6e7a1f02c185" title="nanorq_decode_block" alt="" coords="601,81,749,108"/>
+<area shape="rect" id="node10" href="$decode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="811,81,862,108"/>
+</map>

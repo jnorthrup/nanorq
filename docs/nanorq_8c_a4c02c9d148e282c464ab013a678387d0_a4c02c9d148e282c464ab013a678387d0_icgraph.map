@@ -1,0 +1,15 @@
+<map id="nanorq_block_symbols" name="nanorq_block_symbols">
+<area shape="rect" id="node2" href="$encode_8c_ae7f8bbf4dcea92f802d2521fa0264f93.html#ae7f8bbf4dcea92f802d2521fa0264f93" title="dump_block" alt="" coords="916,312,1008,339"/>
+<area shape="rect" id="node4" href="$decode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="661,152,711,179"/>
+<area shape="rect" id="node5" href="$nanorq_8c_a9e0825ce320f90492e45baad6a50ff4c.html#a9e0825ce320f90492e45baad6a50ff4c" title="nanorq_block_decoder" alt="" coords="208,211,360,237"/>
+<area shape="rect" id="node8" href="$nanorq_8c_a327401e07be8814bccd6c39facecdbe1.html#a327401e07be8814bccd6c39facecdbe1" title="nanorq_num_missing" alt="" coords="423,261,568,288"/>
+<area shape="rect" id="node10" href="$nanorq_8c_ae51b5ce95f964fb7c4141edd8128dc0e.html#ae51b5ce95f964fb7c4141edd8128dc0e" title="nanorq_block_encoder" alt="" coords="208,312,360,339"/>
+<area shape="rect" id="node14" href="$nanorq_8c_a6420b464baadc3000ee0a833d6b4aeff.html#a6420b464baadc3000ee0a833d6b4aeff" title="nanorq_encoder_max\l_repair" alt="" coords="211,363,357,405"/>
+<area shape="rect" id="node3" href="$encode_8c_a3c04138a5bfe5d72780bb7e82a18e627.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1056,337,1107,364"/>
+<area shape="rect" id="node6" href="$nanorq_8c_aa1dcf83669e76931be0e6e7a1f02c185.html#aa1dcf83669e76931be0e6e7a1f02c185" title="nanorq_decode_block" alt="" coords="421,93,569,120"/>
+<area shape="rect" id="node7" href="$nanorq_8c_a4199d347f3a4d6e329a6b76fde635121.html#a4199d347f3a4d6e329a6b76fde635121" title="nanorq_decoder_add\l_symbol" alt="" coords="424,145,567,186"/>
+<area shape="rect" id="node9" href="$nanorq_8c_a629b649caa8a354b60fe63cd1570a061.html#a629b649caa8a354b60fe63cd1570a061" title="nanorq_num_repair" alt="" coords="429,211,561,237"/>
+<area shape="rect" id="node11" href="$nanorq_8c_a956615eb4ea3ce34369951295e93f708.html#a956615eb4ea3ce34369951295e93f708" title="nanorq_encode" alt="" coords="631,312,741,339"/>
+<area shape="rect" id="node13" href="$nanorq_8c_ad6a9288685637cdfe83303f66b087a29.html#ad6a9288685637cdfe83303f66b087a29" title="nanorq_generate_symbols" alt="" coords="408,363,583,389"/>
+<area shape="rect" id="node12" href="$encode_8c_a0993cb61d7e4c1b1a1606d159f5b1410.html#a0993cb61d7e4c1b1a1606d159f5b1410" title="dump_esi" alt="" coords="789,312,868,339"/>
+</map>
